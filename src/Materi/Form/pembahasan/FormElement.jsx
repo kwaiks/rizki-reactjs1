@@ -28,6 +28,15 @@ export default class FormElement extends React.Component {
         })
     }
 
+    const changeState = (e) => {
+        this.setState({[e.target.name]: e.target.value});
+        // const a = {
+        //   key: 'a',
+        //   'key': 'a'
+        //   [e.target.name]: 'a'
+        // }
+    }
+
     render () {
         return (
             <div className="form">
@@ -36,13 +45,13 @@ export default class FormElement extends React.Component {
                         <label>
                             Nama : <input 
                             type="text" 
-                            name="name" 
+                            name="nama" 
                             defaultValue={this.props.nama}
-                            onChange={ e => this.setState({nama: e.target.value})}/>
+                            onChange={changeState}/>
                         </label>
                         <br />
                         <label>
-                            Jurusan : <select name="jurusan" onChange={ e => this.setState({jurusan: e.target.value})}>
+                            Jurusan : <select name="jurusan" onChange={changeState}>
                                 <option value="">Pilih Jurusan</option>
                                 <option value="Teknik informatika">Teknik informatika</option>
                                 <option value="Sistem Informasi">Sistem Informasi</option>
@@ -53,19 +62,19 @@ export default class FormElement extends React.Component {
                         <label>
                             Jenis Kelamin : 
                             <input type="radio" value="Pria" name="gender"
-                            onChange={ e => this.setState({gender: e.target.value})}/>Pria
+                            onChange={changeState}/>Pria
                             <input type="radio" value="Wanita" name="gender"
-                            onChange={ e => this.setState({gender: e.target.value})}/>Wanita
+                            onChange={changeState}/>Wanita
                         </label>
                         <br />
                         <label>
                             Alamat: <textarea name="alamat" id="" cols="30" rows="5"
-                            onChange={e => this.setState({alamat: e.target.value})}></textarea>
+                            onChange={changeState}></textarea>
                         </label>
                         <br />
                         <label>
                             Member : <input type="checkbox" checked={this.state.member} name="member"
-                            onChange={e => this.setState({member: e.target.checked})}/>
+                            onChange={changeState}/>
                         </label>
                         <br />
                         <br />
